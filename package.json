@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-    "build": "npm run build",
+    "build": "tsc",
     "lint": "eslint 'src/**/*.{ts,tsx}'"
   },
   "repository": {
