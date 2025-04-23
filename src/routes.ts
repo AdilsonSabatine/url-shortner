@@ -16,4 +16,8 @@ router.get("/:short", (req, res) => {
     urlController.redirect(req, res);
 });
 
+router.delete("/url", (req, res) => {
+    urlController.delete(req, res);
+})
+
 export default router;

@@ -8,8 +8,16 @@ class UrlRepository {
         })
     }
 
-    async getUrlByShort(short: string){
+    async getUrlByShort(short: string) {
         return prisma.url.findUnique({
+            where: {
+                short
+            }
+        })
+    }
+
+    async delete(short: string) {
+        return prisma.url.delete({
             where: {
                 short
             }

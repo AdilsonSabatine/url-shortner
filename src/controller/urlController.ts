@@ -21,6 +21,20 @@ class UrlController {
             const url = await urlRepository.getUrlByShort(short);
             if (url)
                 res.redirect(url.original);
+            else
+                res.status(404).json({error: "Shot url not found"})
+        }
+        catch (e) {
+            res.status(500).json({ error: "Internal server error" });
+        }
+    }
+
+    async delete(req: Request, res: Response) {
+        const { short } = req.body;
+
+        try {
+            urlRepository.delete(short);
+            res.status(200).json({ message: "Url deleted" });
         }
         catch (e) {
             res.status(500).json({ error: "Internal server error" });
