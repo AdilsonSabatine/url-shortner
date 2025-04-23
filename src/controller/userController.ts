@@ -9,6 +9,7 @@ class UserController {
             res.status(201).json(user)
         }
         catch (e) {
+            console.log(e)
             if (e.code === "P2002") {
                 return res.status(409).json({ error: "E-mail already in use" }); // 409 Conflict
             }
