@@ -7,6 +7,14 @@ class UrlRepository {
             data: { original, short }
         })
     }
+
+    async getUrlByShort(short: string){
+        return prisma.url.findUnique({
+            where: {
+                short
+            }
+        })
+    }
 }
 
 export default new UrlRepository();

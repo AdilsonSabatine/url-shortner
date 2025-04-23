@@ -10,6 +10,10 @@ router.post("/user", (req, res) => {
 
 router.post("/url", (req, res) => {
     urlController.create(req, res);
-})
+});
+
+router.get("/:short", (req, res) => {
+    urlController.redirect(req, res);
+});
 
 export default router;

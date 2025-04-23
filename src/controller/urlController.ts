@@ -13,7 +13,18 @@ class UrlController {
         catch (e) {
             res.status(500).json({ error: "Internal server error" });
         }
+    }
 
+    async redirect(req: Request, res: Response) {
+        const { short } = req.params;
+        try {
+            const url = await urlRepository.getUrlByShort(short);
+            if (url)
+                res.redirect(url.original);
+        }
+        catch (e) {
+            res.status(500).json({ error: "Internal server error" });
+        }
     }
 }
 
