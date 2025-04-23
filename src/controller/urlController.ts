@@ -7,8 +7,8 @@ class UrlController {
         const { original } = req.body;
         try {
             const short = nanoid(6);
-            const user = await urlRepository.create(original, short);
-            res.status(201).json(user)
+            const url = await urlRepository.create(original, short);
+            res.status(201).json(url)
         }
         catch (e) {
             res.status(500).json({ error: "Internal server error" });
